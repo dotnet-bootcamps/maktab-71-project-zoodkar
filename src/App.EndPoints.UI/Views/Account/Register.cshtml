@@ -1,0 +1,100 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "ثبت نام";
+}
+
+
+	<div class="limiter" >
+		<div class="container-login100">
+			<div class="wrap-login100">
+
+
+			<form class="login100-form validate-form"  asp-controller="Account" asp-action="Register" method="post">
+				<span class="login100-form-title">ثبت نام </span>
+				<!-- name -->
+				<div class="wrap-input100 validate-input"  data-validate = "لطفا  نام  خود را وارد کنید!">
+					<input class="input100" asp-for=FirstName type="text" placeholder="نام ">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+				</div>
+				<!--name -->
+				<!-- name -->
+				<div class="wrap-input100 validate-input"  data-validate = "لطفا  نام خانوادگی  خود را وارد کنید!">
+					<input class="input100" asp-for=LastName type="text" placeholder="نام خانوادگی  ">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+				</div>
+				<!--name -->
+				<!-- name -->
+				<div class="wrap-input100 validate-input"  data-validate = "لطفا آدرس   خود را وارد کنید!">
+					<input class="input100" asp-for=HomeAddress type="text" placeholder="آدرس محل سکونت  ">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+				</div>
+				<!--name -->
+				<!-- enter email-->
+				<div class="wrap-input100 validate-input"  data-validate = "لطفا پست الکترونیک خود را وارد کنید!">
+					<input class="input100" asp-for=Email type="text" placeholder="پست الکترونیک">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+				</div>
+				<!-- / enter email -->
+
+				<!-- enter password-->
+				<div class="wrap-input100 validate-input" data-validate = "لطفا رمز عبور را وارد کنید!">
+					<input class="input100" asp-for=Password type="password"  placeholder="رمز عبور">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "لطفا رمز عبور خود را تایید کنید!">
+					<input class="input100" asp-for=ConfirmPassword type="password"  placeholder="تایید رمز عبور">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+				</div>
+				<!-- / enter password-->
+				<!-- / Role -->
+				
+						<input asp-for=Role type="radio" value="Expert">
+					  <label for="Expert">متخصص</label>
+					  <input asp-for=Role type="radio"  value="Customer">
+					 <label for="Customer">کارفرما</label>
+					
+				 
+				<!-- / Role -->
+				<!-- submit button-->
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn" type="submit">ثبت نام </button>
+				</div>
+				<!-- / submit button -->
+				
+
+
+			</form>
+			
+
+			<!-- form image -->
+			<div class="login100-pic js-tilt" data-tilt>
+				<img src="~/LoginStyle/pics/img-01.png" alt="IMG">
+			</div>
+			<!-- / form image -->
+
+			</div>
+		</div>
+	</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

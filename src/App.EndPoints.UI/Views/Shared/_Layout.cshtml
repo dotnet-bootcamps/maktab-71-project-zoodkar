@@ -4,7 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - زودکار</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <link type="text/css" href=""~/LoginStyle/css/bootstrap-rtl.min.css" rel="stylesheet" />
+	<link type="text/css" href="~/LoginStyle/css/font-awesome.min.css" rel="stylesheet" />
+	<link type="text/css" href="~/LoginStyle/css/animate.css" rel="stylesheet" />
+	<link type="text/css" href="~/LoginStyle/css/hamburgers.min.css" rel="stylesheet" />
+	<link type="text/css" href="~/LoginStyle/css/select2.min.css" rel="stylesheet" />
+	<link type="text/css" href="~/LoginStyle/css/util.css" rel="stylesheet" />
+	<link type="text/css" href="~/LoginStyle/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App.EndPoints.UI.styles.css" asp-append-version="true" />
 </head>
@@ -25,6 +33,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">حریم خصوصی</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login"> ورورد</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Rigster">ثبت نام </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,6 +58,17 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/LoginStyle/js/jquery-3.2.1.min.js"></script>
+	<script src="~/LoginStyle/js/popper.min.js"></script>
+	<script src="~/LoginStyle/js/bootstrap.min.js"></script>
+	<script src="~/LoginStyle/js/select2.min.js"></script>
+	<script src="~/LoginStyle/js/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="js/scripts.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
