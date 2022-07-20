@@ -3,20 +3,32 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">شناسه</th>
+      <th scope="col">نام</th>
+      <th scope="col">نام خانوادگی</th>
+      <th scope="col">محل سکونت</th>
+       <th scope="col">حالت </th>
+        <th scope="col">دسترسی ها </th>
     </tr>
   </thead>
   <tbody>
       @foreach (var item in Model)
       {
           <tr>
-             <th scope="row">@item.</th>
-            <td>Mark</td>
-            <td>Otto</td>
-             <td></td>
+               <td>@item.Id</td>
+             <th scope="row">@item.FirstName</th>
+            <td>@item.LastName</td>
+             <td>@item.HomeAddress</td>
+              <td>@item.IsActive</td>
+              @* <td>@item.Roles</td>*@
+               <td>@foreach (var role in item.Roles )
+                   {
+                       <table>
+                           <tr>@role</tr>
+                       </table>
+                       
+                   }</td>
+           
     </tr>
       }
     

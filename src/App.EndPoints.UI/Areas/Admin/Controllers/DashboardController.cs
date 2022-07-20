@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.EndPoints.UI.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "AdminRole")]
+    //[Authorize(Roles = "AdminRole")]
     public class DashboardController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -24,18 +24,26 @@ namespace App.EndPoints.UI.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var users=await _userManager.Users.Select( x => new UsersViewModel
+            var users = await _userManager.Users.ToListAsync();
+            var user = new List<UsersViewModel>();
+            foreach (var x in users)
             {
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-                HomeAddress = x.HomeAddress,
-                Id= x.Id,
-                IsActive = x.IsActive,
-                Roles=_userManager.GetRolesAsync(x),
-            }).ToListAsync();
+                var userViewModel = new UsersViewModel
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    HomeAddress = x.HomeAddress,
+                    Id = x.Id,
+                    IsActive = x.IsActive,
+                    Roles = await _userManager.GetRolesAsync(x),
+                };
+                user.Add(userViewModel);
+            }
+                
+            
             
 
-            return View(users);
+            return View(user);
         }
     }
 }

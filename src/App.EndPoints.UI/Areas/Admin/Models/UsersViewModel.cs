@@ -8,6 +8,6 @@
         public bool IsActive { get; set; }
         public int PictureFileId { get; set; }
         public string HomeAddress { get; set; }
-        public Task<IList<string>> Roles { get; set; }
+        public IList<string> Roles { get; set; }
     }
 }
