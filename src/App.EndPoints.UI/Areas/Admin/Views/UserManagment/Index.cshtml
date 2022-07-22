@@ -1,4 +1,4 @@
-﻿@model List<UsersViewModel>
+﻿@model List<UserDto>
 
 <table class="table">
   <thead>
@@ -12,10 +12,11 @@
     </tr>
   </thead>
   <tbody>
+   
       @foreach (var item in Model)
       {
           <tr>
-               <td>@item.Id</td>
+               <td></td>
              <th scope="row">@item.FirstName</th>
             <td>@item.LastName</td>
              <td>@item.HomeAddress</td>

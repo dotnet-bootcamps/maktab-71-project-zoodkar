@@ -12,6 +12,6 @@ namespace App.Domain.Core.Services.AppService.ServiceEntity
     {
 
         public  Task<List<ServiceDto>> GetAllService();
-        public Task<List<CategoryDto>> GetAllCategory();
+       
     }
 }

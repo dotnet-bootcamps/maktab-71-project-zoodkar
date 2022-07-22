@@ -1,7 +1,27 @@
+using App.Domain.AppSevices.Order;
+using App.Domain.AppSevices.ServiceEntiry;
+using App.Domain.AppSevices.User;
+using App.Domain.Core.Data.Order;
+using App.Domain.Core.Data.ServiceEntity;
+using App.Domain.Core.Data.User;
 using App.Domain.Core.Entities;
+using App.Domain.Core.MppingProfile.Profiles;
+using App.Domain.Core.Services.AppService.Order;
+using App.Domain.Core.Services.AppService.ServiceEntity;
+using App.Domain.Core.Services.AppService.User;
+using App.Domain.Core.Services.Service.Order;
+using App.Domain.Core.Services.Service.ServiceEntity;
+using App.Domain.Core.Services.Service.User;
+using App.Domain.Services.Order;
+using App.Domain.Services.ServiceEntiry;
+using App.Domain.Services.User;
 using App.Infrastructures.Database.SqlServer;
+using App.Infrastructures.Repository.Ef.Order;
+using App.Infrastructures.Repository.Ef.ServiceEntity;
+using App.Infrastructures.Repository.Ef.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,8 +53,21 @@ builder.Services.AddIdentity<AppUser, IdentityRole<int>>(
         })
     .AddEntityFrameworkStores<AppDbContext>();
 
-
+builder.Services.AddScoped<IServiceEntityAppService, ServiceEntityAppService>();
+builder.Services.AddScoped<IServiceEntityService,ServiceEntityService>();
+builder.Services.AddScoped<ICategoryAppService, CategoryAppService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderAppService, OrderAppService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddAutoMapper(typeof(ServiceMappings).Assembly);
+builder.Services.AddScoped<IUserAppService, UserAppService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

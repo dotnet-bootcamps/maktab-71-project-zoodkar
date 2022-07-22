@@ -1,10 +1,11 @@
-﻿using App.Domain.Core.Entities;
+﻿using App.Domain.Core.DtoModels;
+using App.Domain.Core.Entities;
 
 namespace App.EndPoints.UI.Areas.Admin.Models
 {
     public class ServiceViewModel
     {
-        public List<Service> Services { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<ServiceDto> Services { get; set; }
+        public List<CategoryDto> Categories { get; set; }
     }
 }

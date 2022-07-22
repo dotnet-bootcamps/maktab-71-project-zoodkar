@@ -1,0 +1,38 @@
+﻿@model ServiceViewModel
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">شناسه</th>
+      <th scope="col">عنوان</th>
+      <th scope="col">قیمت </th>
+      <th scope="col">توضیحات </th>
+  
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model.Categories)
+      {
+          <tr>
+              <td>@item.Id</td>
+              <td>@item.Title</td> 
+              <td></td>
+              <td></td>
+          </tr>
+          @foreach (var servic in item.Services)
+              {
+                  <tr>
+                      <td>@servic.Id</td>
+                      <td>@servic.Title</td>
+                      <td>@servic.Price</td>
+                      <td>@servic.ShortDescription</td>
+                      
+              
+                  </tr>
+              }
+          
+      }
+      
+    
+   
+</table>

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace App.Domain.Core.Services.Service
+namespace App.Domain.Core.Services.Service.ServiceEntity
 {
-    public interface IServiceEntityServic
+    public interface IServiceEntityService
     {
 
         public Task<List<ServiceDto>> GetAllService();
-        public Task<List<CategoryDto>> GetAllCatedory();
+      
     }
 }
