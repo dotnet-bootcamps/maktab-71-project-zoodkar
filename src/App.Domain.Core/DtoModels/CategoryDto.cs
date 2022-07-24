@@ -1,4 +1,5 @@
 ﻿using App.Domain.Core.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,8 @@ namespace App.Domain.Core.DtoModels
         public int Id { get; set; }
         [Display(Name ="عنوان")]
         public string Title { get; set; } = null!;
-
+        public string? FileId { get; set; }
+        public IFormFile File { get; set; }
         public virtual ICollection<ExpertFavoriteCategory> ExpertFavoriteCategories { get; set; }
         public virtual ICollection<Service> Services { get; set; }
     }

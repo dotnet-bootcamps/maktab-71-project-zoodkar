@@ -31,11 +31,15 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
 		<PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
 		<PackageReference Include="xunit.extensibility.execution" Version="2.4.1" />
+
+
+		
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Areas\Admin\Data\" />
 	  <Folder Include="Areas\Admin\Views\Dashboard\" />
+	  <Folder Include="wwwroot\Image\" />
 	</ItemGroup>
 
 </Project>

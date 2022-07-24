@@ -34,6 +34,7 @@ namespace App.EndPoints.UI.Models.ViewModel
         [Compare(nameof(Password), ErrorMessage = "رمز عبور و تکرار رمز هبور باید یکسان باشند")]
         public string ConfirmPassword { get; set; }
         public string Role { get; set; }
+        public IFormFile File { get; set; }
 
     }
 }

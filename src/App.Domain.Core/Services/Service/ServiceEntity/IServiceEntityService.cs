@@ -10,6 +10,6 @@ namespace App.Domain.Core.Services.Service.ServiceEntity
     {
 
         public Task<List<ServiceDto>> GetAllService();
-      
+        public Task<int> Add(ServiceDto model);
     }
 }

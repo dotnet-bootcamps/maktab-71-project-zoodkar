@@ -22,6 +22,11 @@ namespace App.Domain.Services.User
             return await _userRepository.GetAll();
         }
 
+        public async Task<List<string>> GetAllRoles()
+        {
+            return await _userRepository.GetAllRoles();
+        }
+
         public async Task<UserDto> GetByName(string name)
         {
             return await _userRepository.GetByName(name);

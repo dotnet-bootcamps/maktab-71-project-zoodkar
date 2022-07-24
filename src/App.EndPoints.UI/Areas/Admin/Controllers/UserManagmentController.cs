@@ -4,6 +4,7 @@ using App.Domain.Core.Services.AppService.User;
 using App.EndPoints.UI.Areas.Admin.Models;
 using App.Infrastructures.Database.SqlServer;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.EndPoints.UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserManagmentController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

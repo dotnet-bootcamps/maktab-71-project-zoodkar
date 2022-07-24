@@ -11,18 +11,32 @@ namespace App.Domain.Services.ServiceEntiry
 {
     public class CategoryService : ICategoryService
     {
-        public CategoryService(ICategoryRepository commandRepository ,ICategoryRepository queryRepository)
+        public CategoryService(ICategoryRepository categoryRepository )
         {
-            _CommandRepository = commandRepository;
-            _QueryRepository = queryRepository;
+            _CategoryRepository = categoryRepository;
+           
         }
 
-        public ICategoryRepository _CommandRepository { get; }
-        public ICategoryRepository _QueryRepository { get; }
+        public ICategoryRepository _CategoryRepository;
+
+        public async Task<int> Add(CategoryDto model)
+        {
+           return await _CategoryRepository.Add( model );
+        }
 
         public async Task<List<CategoryDto>> GetAllCategory()
         {
-           return await _QueryRepository.GetAll();
+           return await _CategoryRepository.GetAll();
+        }
+
+        public async Task<CategoryDto> GetById(int id)
+        {
+            return await _CategoryRepository.GetById( id );
+        }
+
+        public async Task Update(CategoryDto model)
+        {
+            await _CategoryRepository.Update(model);
         }
     }
 }

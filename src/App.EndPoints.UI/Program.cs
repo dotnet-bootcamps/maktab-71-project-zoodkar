@@ -1,20 +1,26 @@
 using App.Domain.AppSevices.Order;
 using App.Domain.AppSevices.ServiceEntiry;
+using App.Domain.AppSevices.UploadFile;
 using App.Domain.AppSevices.User;
 using App.Domain.Core.Data.Order;
 using App.Domain.Core.Data.ServiceEntity;
+using App.Domain.Core.Data.UploadFile;
 using App.Domain.Core.Data.User;
 using App.Domain.Core.Entities;
 using App.Domain.Core.MppingProfile.Profiles;
 using App.Domain.Core.Services.AppService.Order;
 using App.Domain.Core.Services.AppService.ServiceEntity;
+using App.Domain.Core.Services.AppService.UploadFile;
 using App.Domain.Core.Services.AppService.User;
 using App.Domain.Core.Services.Service.Order;
 using App.Domain.Core.Services.Service.ServiceEntity;
+using App.Domain.Core.Services.Service.UploadFile;
 using App.Domain.Core.Services.Service.User;
 using App.Domain.Services.Order;
 using App.Domain.Services.ServiceEntiry;
+using App.Domain.Services.UploadFile;
 using App.Domain.Services.User;
+using App.EndPoints.UI.UploadFile;
 using App.Infrastructures.Database.SqlServer;
 using App.Infrastructures.Repository.Ef.Order;
 using App.Infrastructures.Repository.Ef.ServiceEntity;
@@ -66,6 +72,11 @@ builder.Services.AddAutoMapper(typeof(ServiceMappings).Assembly);
 builder.Services.AddScoped<IUserAppService, UserAppService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUploadFileAppService, UploadFileAppService>();
+builder.Services.AddScoped<IUploadFileService, UploadFileService>();
+builder.Services.AddScoped<IUploadFileRepository, UploadFileRepository>();
+
+
 var app = builder.Build();
 
 

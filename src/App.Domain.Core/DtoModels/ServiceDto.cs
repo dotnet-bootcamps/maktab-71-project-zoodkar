@@ -13,6 +13,7 @@ namespace App.Domain.Core.DtoModels
         public int Id { get; set; }
         [Display(Name ="شناسه دسته بندی")]
         public int CategoryId { get; set; }
+        public string stringCategoryId { get; set; }
         [Display(Name = "عنوان")]
         public string Title { get; set; } = null!;
         public string? ShortDescription { get; set; }
@@ -23,5 +24,6 @@ namespace App.Domain.Core.DtoModels
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<ServiceComment> ServiceComments { get; set; }
         public virtual ICollection<ServiceFile> ServiceFiles { get; set; }
+       
     }
 }

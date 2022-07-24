@@ -44,6 +44,8 @@ namespace App.Infrastructures.Repository.Ef.ServiceEntity
         {
             var category = await _DbContext.Categories.FirstAsync(x => x.Id == dto.Id);
             category = _mapper.Map<Category>(dto);
+
+
             await _DbContext.SaveChangesAsync();
         }
         public async Task<CategoryDto>? GetById(int id)

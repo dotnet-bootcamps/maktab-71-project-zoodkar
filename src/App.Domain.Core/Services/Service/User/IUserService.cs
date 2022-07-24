@@ -11,5 +11,6 @@ namespace App.Domain.Core.Services.Service.User
     {
         Task<List<UserDto>> GetAll();
         Task<UserDto> GetByName(string name);
+        Task<List<string>> GetAllRoles();
     }
 }

@@ -59,6 +59,12 @@ namespace App.Infrastructures.Repository.Ef.User
             return user;
         }
 
+        public async Task<List<string>> GetAllRoles()
+        {
+            var roles = await _dbContext.Roles.AsNoTracking().Select(x => x.Name).ToListAsync() ;
+            return roles;
+        }
+
         public async Task<UserDto> GetByName(string name)
         {
             var user = await _userManager.FindByNameAsync(name);

@@ -18,7 +18,12 @@ namespace App.Domain.AppSevices.ServiceEntiry
         {
             _Service= serviceEntityService;
         }
-       
+
+        public async Task<int> Add(ServiceDto model)
+        {
+            return await _Service.Add(model);
+        }
+
         public async Task<List<ServiceDto>> GetAllService()
         {
             return await _Service.GetAllService();

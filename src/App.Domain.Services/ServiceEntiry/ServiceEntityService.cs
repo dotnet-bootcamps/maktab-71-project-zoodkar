@@ -24,10 +24,11 @@ namespace App.Domain.Services.ServiceEntiry
          
          
         }
-
         
-
-       
+        public async Task<int> Add(ServiceDto model)
+        {
+           return await _ServiceRepository.Add(model);
+        }
 
         public async Task<List<ServiceDto>> GetAllService()
         {

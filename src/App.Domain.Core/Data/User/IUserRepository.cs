@@ -13,6 +13,7 @@ namespace App.Domain.Core.Data.User
 
         Task<UserDto> GetByName(String name);
         Task<List<UserDto>> GetAll();
+        Task<List<string>> GetAllRoles();
 
         #endregion
 

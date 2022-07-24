@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.EndPoints.UI.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "AdminRole")]
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
        

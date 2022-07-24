@@ -1,8 +1,12 @@
 ﻿using App.Domain.Core.Entities;
+using App.Domain.Core.Services.AppService.UploadFile;
+using App.Domain.Core.Services.AppService.User;
+using App.EndPoints.UI.Models.File;
 using App.EndPoints.UI.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 
 namespace App.EndPoints.UI.Controllers
@@ -11,17 +15,26 @@ namespace App.EndPoints.UI.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        
-
+        private readonly IWebHostEnvironment _webHost;
+        public IUploadFileAppService _UploadFileAppService;
+        public IUserAppService _UserAppService;
         public AccountController(
             UserManager<AppUser> userManager,
-            SignInManager<AppUser> signInManager
+            SignInManager<AppUser> signInManager,
+            IWebHostEnvironment webHost,
+            IUploadFileAppService uploadFileAppService,
+            IUserAppService userAppService
+             
            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            
+            _webHost = webHost;
+            _UploadFileAppService = uploadFileAppService;
+            _UserAppService = userAppService;
         }
+
+      
 
         [AllowAnonymous]
         public async Task<IActionResult> Login()
@@ -55,8 +68,15 @@ namespace App.EndPoints.UI.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            var Roles = await _UserAppService.GetAllRoles();
+            Roles.Remove("Admin");
+            ViewBag.Roles =Roles.Select
+            (s => new SelectListItem
+            {
+                Text = s,
+                Value = s            });
             return View();
         }
 
@@ -64,8 +84,10 @@ namespace App.EndPoints.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+           
             if (ModelState.IsValid)
             {
+                
                 var user = new AppUser
                 {
                     FirstName=model.FirstName,
@@ -78,6 +100,9 @@ namespace App.EndPoints.UI.Controllers
                     
                 };
 
+                user.PictureFileId = await _UploadFileAppService.Add(model.File);
+                
+              
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -101,6 +126,7 @@ namespace App.EndPoints.UI.Controllers
             }
             return View(model);
         }
+
     }
 }
 
