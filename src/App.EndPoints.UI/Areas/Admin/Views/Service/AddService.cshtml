@@ -1,0 +1,71 @@
+﻿@model ServiceDto
+
+@{
+    ViewData["Title"] = "اضافه کردن سرویس";
+}
+
+<form method="post" asp-controller="Service" asp-action="AddService">
+
+
+    <div class="form-group row">
+        <h2 class="text-info pl-3">ثبت سرویس جدید</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="form-group row p-3">
+                <div class="col-4">
+                    
+                </div>
+                <div class="col-8">
+                     <select asp-for=stringCategoryId class="select-chosen input100" asp-items="@ViewBag.Roles" >
+                        <option disabled selected> نوع دسه بندی </option>
+                    </select>
+                </div>
+
+            </div>
+
+             </div>
+                <div class="col-8">
+                    <label asp-for=Title>عنوان</label>
+                    <input type="text" asp-for=Title class="form-control" />
+                    <span asp-validation-for=Title class="text-danger"></span>
+                </div>
+            
+              </div>
+                <div class="col-8">
+                    <label asp-for=Price>قیمت</label>
+                    <input type="text" asp-for=Price class="form-control" />
+                    <span asp-validation-for=Price class="text-danger"></span>
+                </div>
+                 <div class="col-8">
+                     <label asp-for=ShortDescription>توضیحات</label>
+                    <input type="text" asp-for=ShortDescription class="form-control" />
+                    <span asp-validation-for=ShortDescription class="text-danger"></span>
+                </div>
+         
+                    <div class="col">
+                        <input type="submit" value="ذخیره" class="btn btn-primary w-100" />
+                    </div>
+                    <div class="col">
+                        <a asp-controller="Service" asp-action="Index" class="btn btn-secondary"><i class="fas fa-sign-out-alt">بازگشت به لیست</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+<script>
+
+            $(function() {
+        $(".select-chosen").chosen({rtl: true});
+    });
+
+</script>
+}
+

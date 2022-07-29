@@ -1,0 +1,50 @@
+﻿@model List<CategoryDto>
+<a type="button" class="btn btn-warning"  asp-controller="Service" asp-action="AddService">ثبت سرویس جدید</a>
+<a type="button" class="btn btn-warning"  asp-controller="Service" asp-action="AddCategory">ثبت دسته بندی جدید</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">شناسه</th>
+      <th scope="col">عنوان</th>
+      <th></th>
+      <th scope="col">قیمت </th>
+      <th scope="col">توضیحات </th>
+  
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+      {
+          <tr class="table-dark">
+              <td>@item.Id</td>
+              <td><b>@item.Title</b></td> 
+              <td>
+                  <div class="text-center">
+                     <img src=/Image/@item.FileId class="img-circle" alt="بدون تصویر" width="100" height="50">
+                        </div>
+              </td>
+              <td></td>
+               <td></td>
+               <td><a type="button" class="btn btn-warning"  asp-controller="Service" asp-action="UpdateCategory" asp-route-Id=@item.Id >ویرایش</a> </td>
+               <td><a type="button" class="btn btn-warning"  asp-controller="Service" asp-action="DeleteCatedory">حذف</a> </td>
+          </tr>
+          @foreach (var servic in item.Services)
+              {
+                  <tr class="table-secondary">
+                      <td>@servic.Id</td>
+                      <td>@servic.Title</td>
+                      <td></td>
+                      <td>@servic.Price</td>
+                      <td>@servic.ShortDescription</td>
+                      <td><a type="button" class="btn btn-warning"  asp-controller="Service" asp-action="UpdateService">ویرایش</a> </td>
+                       <td><a type="button" class="btn btn-warning"  asp-controller="Service" asp-action="DeleteService">حذف</a> </td>
+              
+                  </tr>
+              }
+          
+      }
+      
+    
+   
+</table>
+ 

@@ -1,0 +1,27 @@
+﻿@model List<OrderDto>
+
+ <table class="table table-success">
+     <tr>
+         <th>شناسه</th>
+         <th>کد سرویس</th>
+         <th>تاریخ درخاست</th>
+         <th>کد سفارش دهنده</th>
+         <th>کد متخصص</th>
+         <th>وضعیت سفارش</th>
+     </tr>
+
+     @foreach (var item in Model)
+     {
+         <tr>
+             <td>@item.Id</td>
+             <td>@item.ServiceId</td>
+             <td>@item.CreatedAt</td>
+             <td>@item.CustomerUserId</td>
+             <td>@item.FinalExpertUserId</td>
+             <td>@item.ServiceBasePrice</td>
+             <td>@item.Status.Title</td>
+
+         </tr>
+         
+     }
+ </table>

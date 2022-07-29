@@ -1,0 +1,56 @@
+﻿@model CategoryDto
+
+@{
+    ViewData["Title"] = "اضافه کردن دسته بندی";
+}
+
+<form method="post" enctype="multipart/form-data" asp-controller="Service" asp-action="AddCategory">
+
+
+    <div class="form-group row">
+        <h2 class="text-info pl-3">ثبت دسته بندی  جدید</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="form-group row p-3">
+                <div class="col-4">
+                    
+                
+
+             </div>
+                <div class="col-8">
+                    <input type="text" asp-for=Title class="form-control" />
+                    <span asp-validation-for=Title class="text-danger"></span>
+                </div>
+            <div class="col-8">
+                    <input asp-for=File  placeholder="انتخاب عکس"  class="form-control"  />
+                    <span asp-validation-for=File class="text-danger"></span>
+                </div>
+            
+         
+                    <div class="col">
+                        <input type="submit" value="ذخیره" class="btn btn-primary w-100" />
+                    </div>
+                    <div class="col">
+                        <a asp-controller="Service" asp-action="Index" class="btn btn-secondary"><i class="fas fa-sign-out-alt">بازگشت به لیست</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+<script>
+
+            $(function() {
+        $(".select-chosen").chosen({rtl: true});
+    });
+
+</script>
+}
+

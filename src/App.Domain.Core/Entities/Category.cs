@@ -10,7 +10,7 @@
 
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-
+        public string? FileId { get; set; }
         public virtual ICollection<ExpertFavoriteCategory> ExpertFavoriteCategories { get; set; }
         public virtual ICollection<Service> Services { get; set; }
     }
